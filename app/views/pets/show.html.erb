@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h3 class="my-4"> Datos de la mascota</h3>
+
+<table class="table table-bordered">
+  <thead class="bg-success">
+    <th>Nombre</th>
+    <th>Fecha Nacimiento</th>
+    <th>Raza</th>
+    <th>Cliente</th>
+  </thead>
+  <tbody>
+    <td><%= @pet.name %></td>
+    <td><%= @pet.birthday %></td> 
+    <td><%= @pet.breed %></td> 
+    <td><%= @pet.client %></td>
+  </tbody>
+</table>
+
+<table class="table table-hover table-bordered">
+  <thead class="bg-success">
+    <th>Altura Promedio</th>
+    <th>Peso Promedio</th> 
+    <th>Altura maxima</th>
+    <th>Peso maximo</th>
+    
+  </thead>
+  <tbody>
+    <td><%= @pet.prom_height%></td> 
+    <td><%= @pet.prom_weight%></td>
+    <td><%= @pet.max_height%></td> 
+    <td><%= @pet.max_weight%></td> 
+    
+  </tbody>
+</table>
+
+<h3 class="my-4"> Historial de visitas</h3>
+
+<table class="table table-hover table-bordered">
+  <thead class="bg-success">
+    <th>Fecha de Visita</th>
+    <th>Altura</th>
+    <th>Peso</th>
+  </thead>
+
+  <% @pet.pet_histories.each do |ph|%>
+  <tbody>
+    <td><%= ph.created_at%></td>
+    <td><%= ph.height%></td> 
+    <td><%= ph.weight%></td> 
+  </tbody>
+
+  <%end%>
+</table>
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clientes</h1>
+
+<table class="table table-bordered">
+  <thead class="bg-success">
+    <tr>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Cantidad de mascotas</th>
+      <th colspan="3"></>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.telephone %></td>
+        <td><%= client.email %></td>
+        <td><%= client.total_pets %> </td>
+        <td><%= link_to 'Show', client, class:"badge badge-success text-light" %></td>
+        <td><%= link_to 'Edit', edit_client_path(client), class:"badge badge-success text-light" %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }, class:"badge badge-success text-light" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Cliente', new_client_path, class:"btn btn-success text-light" %>

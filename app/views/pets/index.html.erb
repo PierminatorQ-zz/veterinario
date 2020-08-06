@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mascotas</h1>
+
+<table class="table table-bordered">
+  <thead class="bg-success">
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Raza</th>
+      <th>Cliente</th>
+      <th>Visitas</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.birthday %></td>
+        <td><%= pet.breed %></td>
+        <td><%= pet.client %></td>
+        <td><%= pet.total_visit %></td>
+        <td><%= link_to 'Show', pet, class:"badge badge-success text-light" %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet), class:"badge badge-success text-light" %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' }, class:"badge badge-success text-light" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva mascota', new_pet_path, class:"btn btn-success text-light" %>
