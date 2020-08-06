@@ -15,11 +15,13 @@ class PetHistoriesController < ApplicationController
   # GET /pet_histories/new
   def new
     @pet_history = PetHistory.new
+    #get names from pets to show at form.select:_form.html:pets_histories
     @pets=Pet.pluck :name, :id
   end
 
   # GET /pet_histories/1/edit
   def edit
+    #get names from pets to show at form.select:_form.html:pets_histories
     @pets=Pet.pluck :name, :id
   end
 

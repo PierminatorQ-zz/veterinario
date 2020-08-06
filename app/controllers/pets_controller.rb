@@ -15,11 +15,13 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    #get names from clients to show at form.select:_form.html:clients
     @clients = Client.pluck :name, :id
   end
 
   # GET /pets/1/edit
   def edit
+    #get names from clients to show at form.select:_form.html:clients
     @clients = Client.pluck :name, :id
   end
 
